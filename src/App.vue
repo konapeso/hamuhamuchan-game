@@ -1,47 +1,108 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {ref, computed}from 'vue'
+
+const questions = ref([
+
+  {
+    question: 'what is Vue JS?',
+    answer: 0,
+    options: [
+          'A front end framework',
+          'A library',
+          'An ice cream maker'
+    ],
+    selected: null
+  },
+  {
+    question: 'what is Vuex?',
+    answer: 2,
+    options: [
+          'Vue with an x',
+          'A cheese selection',
+          'State managemnet library'
+    ]
+  }
+  {
+    question: 'what is Vue Router used for?',
+    answer: 1,
+    options: [
+          'walking in space',
+          'A routing library for vue JS',
+          'Burger sauce',
+          'Quizzes'
+    ]
+  }
+])
+
+const quizCompleted = ref(false)
+const currentQuestion = ref(0)
+const score = computed(() => {
+    let value = 0
+    questions.value.map(q =>{
+        if(q.selected ==q.answer){
+          value++
+        }
+    })
+    return value
+})
+
+const getCurrentQuestion = computed(() => {
+  let question = question.value[currentQuestion.value]
+  question.index = currentQuestion.value
+  return question
+})
+
+const SetAnswer = evt =>{
+  question.value[currentQuestion.value].selected = evt.target.value
+  evt.target.value = null
+}
+
+const NextQuestion = ()=>{
+  if(currentQuestion.value < questions.value.length - 1){
+     currentQuestion.value++
+  }else{
+       quizCompleted.value = true
+  }
+}
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <main class=" app">
+         <h1>The Quiz</h1>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+         <section class="quiz">
+               <div class="quiz-info">
+                <span class="question">{{getCurrentQuestion.question}}</span>
+                <span class="score">Score{{ score }}/ {{ questions.length }}</span>
+               </div>
+               <div class="options">
+                    <label v-for="(option, index) in getCurrentQuestion.options" 
+                    :key="index"
+                    :class = "option${
+                      getCurrentQuestion.selected ==index 
+                      
+                    }">
+                      <input type="radio" 
+                      :name ="getCurrentQuestion.index"
+                      :value="index">
+                    </label>
+               </div>
+         </section>
 
-  <main>
-    <TheWelcome />
-  </main>
+    </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+body {
+    background-color: #271c36;
+    color: #fff;
 }
 </style>
