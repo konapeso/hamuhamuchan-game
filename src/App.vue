@@ -81,11 +81,24 @@ const NextQuestion = ()=>{
                     :key="index"
                     :class = "option${
                       getCurrentQuestion.selected ==index 
-                      
+                      　?index == getCurrentQuestion.answer
+                             ? 'correct'
+                             : 'wrong'
+                        :''   
+                    } ${
+                      getCurrentQuestion.selected ! = null &&
+                      index ! = getCurrentQuestion.selected
+                          ? 'disabled'  
+                          : ''
+
                     }">
-                      <input type="radio" 
+                      <input 
+                      type="radio" 
                       :name ="getCurrentQuestion.index"
-                      :value="index">
+                      :value="index"
+                      v-model ="getCurrentQuestion.selected"
+                      : disabled="getCurrentQuestion.selected"
+                      @change="SetAnswer">
                     </label>
                </div>
          </section>
