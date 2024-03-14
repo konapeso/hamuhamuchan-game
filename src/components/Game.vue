@@ -8,6 +8,7 @@
     />
     <Result
       v-else-if="gameOver || gameWon"
+      :correct="gameWon"
       :gameOver="gameOver"
       @restart="restartGame"
     />

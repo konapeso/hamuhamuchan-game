@@ -1,8 +1,27 @@
 <template>
   <div>
-    <p>
-      ここにゲームオーバーかクリアしたときのメッセージを表示する
-      もう一度プレイする場合はボタンを表示する
-    </p>
+    <div v-if="correct">
+      <p>クリア！</p>
+    </div>
+    <div v-else>
+      <p>残念！</p>
+    </div>
+    <button @click="restart">再スタート</button>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    correct: {
+      type: Boolean,
+      required: true
+    }
+  },
+  methods: {
+    restart() {
+      this.$emit('restart');
+    }
+  }
+};
+</script>
