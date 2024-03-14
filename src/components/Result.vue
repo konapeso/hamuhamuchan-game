@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div v-if="correct">
-      <p>クリア！</p>
+    <div v-if="gameOver">
+      <p>ゲームオーバー！</p>
     </div>
-    <div v-else>
-      <p>残念！</p>
+    <div v-else-if="gameWon">
+      <p>クリア！</p>
     </div>
     <button @click="restart">再スタート</button>
   </div>
@@ -13,7 +13,11 @@
 <script>
 export default {
   props: {
-    correct: {
+    gameWon: {
+      type: Boolean,
+      required: true
+    },
+    gameOver: {
       type: Boolean,
       required: true
     }
