@@ -2,11 +2,12 @@
   <div>
     <div v-if="gameOver">
       <p>ゲームオーバー！</p>
+      <button @click="restart">もう一度</button>
     </div>
-    <div v-else-if="gameWon">
+    <div v-if="gameWon">
       <p>クリア！</p>
+      <button @click="restart">再スタート</button>
     </div>
-    <button @click="restart">再スタート</button>
   </div>
 </template>
 
