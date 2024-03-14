@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>これはサンプルのコードなので適宜書き換えてください</p>
+    <button v-if="!gameStarted" @click="startGame">ゲームを開始</button>
     <Question
       v-if="!gameOver && !gameWon"
       :question="currentQuestion"
@@ -52,6 +53,9 @@ export default {
     },
   },
   methods: {
+    startGame() {
+      this.gameStarted = true; // ゲームを開始
+    },
     checkAnswer(answer) {
       if (answer === this.currentQuestion.correctAnswers) {
         this.correctAnswers++;
@@ -71,6 +75,7 @@ export default {
       this.currentStageIndex = 0;
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
+      this.gameStarted = false; // ゲームを再スタート
     },
   },
 };
