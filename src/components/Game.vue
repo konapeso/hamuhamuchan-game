@@ -1,21 +1,22 @@
 <template>
   <div>
-    <p>これはサンプルのコードなので適宜書き換えてください</p>
+    <p>ハムハムちゃん！</p>
     <Question
-      v-if="!gameOver && !gameWon"
-      :question="currentQuestion"
+     v-if="!gameOver && !gameWon"
+      :question="currentQuestion.question"
+      :choices="currentQuestion.choices"
       @answer="checkAnswer"
     />
     <Result
       v-else-if="gameOver || gameWon"
       :gameOver="gameOver"
+      :gameWon="gameWon"
       @restart="restartGame"
     />
   </div>
 </template>
 
 <script>
-// これはサンプルのコードなので適宜書き換えてください
 import Question from "./Question.vue";
 import Result from "./Result.vue";
 
@@ -27,9 +28,9 @@ export default {
   data() {
     return {
       stages: [
-        { choices: ["A", "B", "C", "D"], correctAnswers: 3 },
-        { choices: ["A", "B", "C", "D"], correctAnswers: 2 },
-        { choices: ["A", "B", "C", "D"], correctAnswers: 1 },
+        { question: "りんごは何色？", choices: ["青", "赤", "黒", "白"], correctAnswer: 1 },
+        { question: "みかんは何色？", choices: ["緑", "黄色", "オレンジ", "黒"], correctAnswer: 2 },
+        { question: "バナナは何色？", choices: ["赤", "オレンジ", "黒", "黄色"], correctAnswer: 3 },
       ],
       currentStageIndex: 0,
       correctAnswers: 0,
@@ -44,21 +45,16 @@ export default {
       return this.wrongAnswers > 0;
     },
     gameWon() {
-      return (
-        this.correctAnswers ===
-        this.stages.reduce((acc, stage) => acc + stage.correctAnswers, 0)
-      );
+      return this.correctAnswers === this.stages.length;
     },
   },
   methods: {
-    checkAnswer(answer) {
-      if (answer === this.currentQuestion.correctAnswers) {
+    checkAnswer(answerIndex) {
+      if (answerIndex === this.currentQuestion.correctAnswer) {
         this.correctAnswers++;
+        this.moveToNextStage();
       } else {
         this.wrongAnswers++;
-      }
-      if (this.wrongAnswers === 0) {
-        this.moveToNextStage();
       }
     },
     moveToNextStage() {
