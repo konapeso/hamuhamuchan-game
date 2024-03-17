@@ -5,7 +5,7 @@
     <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
     <div class="image-container">
       <!-- ここに画像を挿入 -->
-      <img src="/src/imgs/haikei_1.png" alt="" />
+      <img src="src/imgs/0-start.png" alt="" />
     </div>
     <Question
       v-if="!gameOver && !gameWon"
@@ -104,33 +104,45 @@ export default {
 };
 </script>
 
+
 <style>
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+.p{
+  font-size: 20px;
+  font-weight: bold;
+}
+ 
+.Question{
+
 }
 
-.app{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
-}
+.Result{
 
 
-.image-container {
-  text-align: center;
-}
 
+  .choice {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
 
-.Question {
-  background-color: darkcyan;
-  padding: 20px;
-  width : 50%;
+  .choice:hover {
+    background-color: #e0e0e0;
+  }
 
-}
+  /* Style the result section */
+  .result {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .result-won {
+    color: green;
+  }
+
+  .result-lost {
+    color: red;
+  }
 </style>
