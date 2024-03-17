@@ -107,16 +107,13 @@ export default {
 
 <style>
 
-.p{
+ .p{
   font-size: 20px;
   font-weight: bold;
-}
+ }
  
-.Question{
 
-}
-
-.Result{
+ .Result{
 
 
 
@@ -145,4 +142,6 @@ export default {
   .result-lost {
     color: red;
   }
+ }
+
 </style>
