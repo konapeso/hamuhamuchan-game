@@ -2,10 +2,10 @@
 <template>
   <div>
     <p>ハムハムちゃん！</p>
-    <p>ステージ{{ currentStageIndex + 1 }}</p>
+    <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
     <div class="image-container">
       <!-- ここに画像を挿入 -->
-      <img src="" alt="Sample Image" />
+      <img src="/src/imgs/haikei_1.png" alt="" />
     </div>
     <Question
       v-if="!gameOver && !gameWon"
@@ -103,8 +103,34 @@ export default {
   },
 };
 </script>
-<style scoped>
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+
 .image-container {
   text-align: center;
+}
+
+
+.Question {
+  background-color: darkcyan;
+  padding: 20px;
+  width : 50%;
+
 }
 </style>
