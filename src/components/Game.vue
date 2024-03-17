@@ -1,8 +1,14 @@
+<!-- src/components/Game.vue -->
 <template>
   <div>
     <p>ハムハムちゃん！</p>
+    <p>ステージ{{ currentStageIndex + 1 }}</p>
+    <div class="image-container">
+      <!-- ここに画像を挿入 -->
+      <img src="" alt="Sample Image" />
+    </div>
     <Question
-     v-if="!gameOver && !gameWon"
+      v-if="!gameOver && !gameWon"
       :question="currentQuestion.question"
       :choices="currentQuestion.choices"
       @answer="checkAnswer"
@@ -28,9 +34,36 @@ export default {
   data() {
     return {
       stages: [
-        { question: "りんごは何色？", choices: ["青", "赤", "黒", "白"], correctAnswer: 1 },
-        { question: "みかんは何色？", choices: ["緑", "黄色", "オレンジ", "黒"], correctAnswer: 2 },
-        { question: "バナナは何色？", choices: ["赤", "オレンジ", "黒", "黄色"], correctAnswer: 3 },
+        {
+          question: "エレベーターに乗るにはどうすれば！？",
+          choices: [
+            "降りて欲しそうに見つめる",
+            "突撃する",
+            "「乗りたいんですけど〜」と言う",
+            "ため息をつく",
+          ],
+          correctAnswer: [0, 2, 3],
+        },
+        {
+          question: "エレベーターに乗るにはどうすれば！？",
+          choices: [
+            "「小声ですみませんと言う」",
+            "「あの、15分ぐらい見送ってまして、、」と言う",
+            "舌打ちする",
+            "譲ってもらえるまで待ってみる",
+          ],
+          correctAnswer: [0, 1],
+        },
+        {
+          question: "エレベーターに乗るにはどうすれば！？",
+          choices: [
+            "仁義を切る",
+            "「あ、UFOだ！」と言う",
+            "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
+            "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
+          ],
+          correctAnswer: [2],
+        },
       ],
       currentStageIndex: 0,
       correctAnswers: 0,
@@ -50,7 +83,7 @@ export default {
   },
   methods: {
     checkAnswer(answerIndex) {
-      if (answerIndex === this.currentQuestion.correctAnswer) {
+      if (this.currentQuestion.correctAnswer.includes(answerIndex)) {
         this.correctAnswers++;
         this.moveToNextStage();
       } else {
@@ -70,3 +103,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.image-container {
+  text-align: center;
+}
+</style>
