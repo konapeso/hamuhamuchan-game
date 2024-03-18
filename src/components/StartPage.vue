@@ -18,27 +18,28 @@
   };
   </script>
 
-  <style>
-.image-container {
+<style>
+ .image-container {
   position: relative;
-}
+ }
 
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+ .background-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+  }
 
-    h1 {
-      font-size: 3em;
-      text-align: center;
-    }
-    button {
-      font-size: 2em;
-      margin: 0 auto;
-      display: block;
-    }
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    /* 仮です */
+  }
+
+  button {
+   font-size: 2em;
+   margin: 0 auto;
+   display: block;
+  }
 </style>
