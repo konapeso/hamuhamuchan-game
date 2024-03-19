@@ -16,6 +16,8 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FDF5DF;
+}
+body {
+  background-color: #fdf5df;
 }
 </style>
