@@ -1,9 +1,10 @@
 <!-- src/components/Game.vue -->
 <template>
-  <div>
-    <p>ハムハムちゃん！</p>
-    <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
-    <div class="image-container">
+  <div class="flex flex-col items-center justify-center h-screen">
+    <div>
+      <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
+    </div>
+    <div class="flex justify-center sm:max-w-full md:w-3/5 relative">
       <!-- ステージに応じた質問画像 -->
       <img
         v-if="
@@ -11,31 +12,44 @@
         "
         :src="currentQuestionImage"
         alt="Question Image"
+        class="mx-auto"
       />
       <!-- 問題が正解だった場合の画像 -->
       <img
         v-if="displayCorrectImage"
         :src="correctAnswerImage"
         alt="Correct Image"
+        class="mx-auto"
       />
       <!-- 問題が不正解だった場合の画像 -->
-      <img v-if="displayWrongImage" :src="wrongAnswerImage" alt="Wrong Image" />
+      <img
+        v-if="displayWrongImage"
+        :src="wrongAnswerImage"
+        alt="Wrong Image"
+        class="mx-auto"
+      />
       <!-- ゲームがクリアされた場合の画像 -->
-      <img v-if="gameWon" :src="clearImage" alt="Clear Image" />
+      <img v-if="gameWon" :src="clearImage" alt="Clear Image" class="mx-auto" />
+      <Result
+        v-if="gameWon || gameOver"
+        :gameOver="gameOver"
+        :gameWon="gameWon"
+        @restart="restartGame"
+      />
+      <Question
+        v-if="
+          !gameOver &&
+          !gameWon &&
+          !currentChoiceImage &&
+          !displayCorrectImage &&
+          !displayWrongImage
+        "
+        :question="currentQuestion.question"
+        :choices="currentQuestion.choices"
+        @answer="checkAnswer"
+        class="absolute"
+      />
     </div>
-
-    <Question
-      v-if="!gameOver && !gameWon && !currentChoiceImage"
-      :question="currentQuestion.question"
-      :choices="currentQuestion.choices"
-      @answer="checkAnswer"
-    />
-    <Result
-      v-else-if="(gameOver || gameWon) && !currentChoiceImage"
-      :gameOver="gameOver"
-      :gameWon="gameWon"
-      @restart="restartGame"
-    />
   </div>
 </template>
 
@@ -154,6 +168,7 @@ export default {
       displayCorrectImage: false,
       displayWrongImage: false,
       gameWon: false,
+      gameOver: false,
       clearImage: ClearImage,
     };
   },
@@ -204,6 +219,7 @@ export default {
         } else {
           this.wrongAnswers++;
           this.displayWrongImage = true;
+          this.gameOver = true;
         }
       }, 2000);
     },
