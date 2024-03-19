@@ -11,4 +11,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+body {
+  background-color: #FDF5DF; /* ここで背景色を指定 */
+  /* 他のスタイルも必要であればここに記述 */
+}
+</style>

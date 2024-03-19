@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="button-container">
     <div v-if="gameOver">
       <p>ゲームオーバー！</p>
-      <button @click="restart">もう一度</button>
+      <button @click="restart" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        もう一度
+      </button>
     </div>
     <div v-if="gameWon">
       <p>クリア！</p>
-      <button @click="restart">再スタート</button>
+      <button @click="restart" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        再スタート
+      </button>
     </div>
   </div>
 </template>
@@ -30,3 +34,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+</style>

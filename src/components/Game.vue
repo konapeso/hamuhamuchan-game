@@ -7,6 +7,7 @@
       <!-- ここに画像を挿入 -->
       <img src="" alt="Sample Image" />
     </div>
+    
     <Question
       v-if="!gameOver && !gameWon"
       :question="currentQuestion.question"
@@ -19,6 +20,12 @@
       :gameWon="gameWon"
       @restart="restartGame"
     />
+    <!-- 選択肢の表示 -->
+    <div v-if="!gameOver && !gameWon" class="choices-container">
+      <button v-for="(choice, index) in currentQuestion.choices" :key="index" @click="checkAnswer(index)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        {{ choice }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -106,5 +113,15 @@ export default {
 <style scoped>
 .image-container {
   text-align: center;
+}
+.choices-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* ボタンを縦一列に並べる */
+  align-items: center; /* ボタンを中央に配置 */
+}
+
+.choices-container button {
+  margin-bottom: 5px; /* ボタンの下に余白を設定 */
 }
 </style>
