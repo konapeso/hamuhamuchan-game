@@ -1,19 +1,17 @@
 <template>
-    <div class="image-container">
-     <div class="content">
-       <h1>ハムハムちゃん！</h1>
-       <router-link to="/game">
-         <button>スタート</button>
-        </router-link>
-     </div>
+    <div class="button-container">
+      <h1>ハムハムちゃん！</h1>
+      <router-link to="/game">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          スタート
+        </button>
+      </router-link>
     </div>
   </template>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
   <div id-"app">
-    <img v-bind:src="img" class="background-image" /img>
+    <img v-bind:src="img" class="background-image" />
     </div>
   
   <script>
@@ -26,8 +24,21 @@
   </script>
 
 
-<style>
- .image-container {
+
+  export default {
+    methods: {
+      
+    }
+  };
+  </script>
+  <style scoped>
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    /* 仮です */
+  }
+  
+   .image-container {
   position: relative;
  }
 
@@ -38,16 +49,8 @@
    width: 100%;
    height: 100%;
   }
-
-  h1 {
-    font-size: 3em;
-    text-align: center;
-    /* 仮です */
+  .button-container {
+    display: flex;
+    justify-content: center;
   }
-
-  button {
-   font-size: 2em;
-   margin: 0 auto;
-   display: block;
-  }
-</style>
+  </style>

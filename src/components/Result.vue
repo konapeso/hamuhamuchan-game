@@ -1,16 +1,23 @@
 <template>
-  <div>
+  <div class="button-container">
     <div v-if="gameOver">
-      <div class="image-container">
+
+<div class="image-container">
       <img  class="background-fail" src="../imgs/fail2.png" alt="" />
-      <button @click="restart">もう一度</button>
+      <p>ゲームオーバー！</p>
+      <button @click="restart" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        もう一度
+      </button>
     </div>
   </div>
 </div>
     <div v-if="gameWon">
-      <div class="image-container">
+          <div class="image-container">
       <img  class="background-clear" src="../imgs/clear.png" alt="" />
-      <button @click="restart">再スタート</button>
+      <p>クリア！</p>
+      <button @click="restart" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        再スタート
+      </button>
     </div>
   </div>
 </template>
@@ -35,33 +42,6 @@ export default {
 };
 </script>
 
-<style>
- .image-container {
-  position: relative;
- }
-
- .background-fail {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-  }
-
-  button {
-   font-size: 2em;
-   margin: 0 auto;
-   display: block;
-  }
-
-  .background-clear{
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-  }
-</style>
 
 <style scoped>
 .image-container {
@@ -77,5 +57,9 @@ export default {
   background-attachment: fixed;
   /* コンテナの高さを設定（必要に応じて） */
   height: 100vh;
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 </style>

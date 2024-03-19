@@ -6,6 +6,7 @@
     <div class="image-container">
       <!-- ここに画像を挿入 -->
     </div>
+    
     <Question
       v-if="!gameOver && !gameWon"
       :question="currentQuestion.question"
@@ -18,6 +19,12 @@
       :gameWon="gameWon"
       @restart="restartGame"
     />
+    <!-- 選択肢の表示 -->
+    <div v-if="!gameOver && !gameWon" class="choices-container">
+      <button v-for="(choice, index) in currentQuestion.choices" :key="index" @click="checkAnswer(index)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        {{ choice }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -106,44 +113,24 @@ export default {
 };
 </script>
 
-
-<style>
+<style scoped>
 
  .p{
   font-size: 20px;
   font-weight: bold;
  }
  
+.image-container {
+  text-align: center;
+}
+.choices-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* ボタンを縦一列に並べる */
+  align-items: center; /* ボタンを中央に配置 */
+}
 
- .Result{
-
-
-
-  .choice {
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-  }
-
-  .choice:hover {
-    background-color: #e0e0e0;
-  }
-
-  /* Style the result section */
-  .result {
-    font-size: 18px;
-    margin-top: 20px;
-  }
-
-  .result-won {
-    color: green;
-  }
-
-  .result-lost {
-    color: red;
-  }
- }
-
+.choices-container button {
+  margin-bottom: 5px; /* ボタンの下に余白を設定 */
+}
 </style>
