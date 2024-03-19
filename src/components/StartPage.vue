@@ -8,8 +8,23 @@
       </router-link>
     </div>
   </template>
+
+
+  <div id-"app">
+    <img v-bind:src="img" class="background-image" />
+    </div>
   
   <script>
+   new Vue ({
+     el: '#app',
+     data: {
+       img: '../imgs/0-start.png'
+     }
+   })
+  </script>
+
+
+
   export default {
     methods: {
       
@@ -17,6 +32,23 @@
   };
   </script>
   <style scoped>
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    /* 仮です */
+  }
+  
+   .image-container {
+  position: relative;
+ }
+
+ .background-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+  }
   .button-container {
     display: flex;
     justify-content: center;

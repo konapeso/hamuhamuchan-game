@@ -2,10 +2,9 @@
 <template>
   <div>
     <p>ハムハムちゃん！</p>
-    <p>ステージ{{ currentStageIndex + 1 }}</p>
+    <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
     <div class="image-container">
       <!-- ここに画像を挿入 -->
-      <img src="" alt="Sample Image" />
     </div>
     
     <Question
@@ -50,6 +49,7 @@ export default {
             "ため息をつく",
           ],
           correctAnswer: [0, 2, 3],
+          img: "../imgs/0-start.png", // 画像あとでかえる.複数選択にしたい。
         },
         {
           question: "エレベーターに乗るにはどうすれば！？",
@@ -60,6 +60,7 @@ export default {
             "譲ってもらえるまで待ってみる",
           ],
           correctAnswer: [0, 1],
+          img: "../imgs/0-start.png", // 画像あとでかえる
         },
         {
           question: "エレベーターに乗るにはどうすれば！？",
@@ -70,6 +71,7 @@ export default {
             "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
           ],
           correctAnswer: [2],
+          img: "../imgs/0-start.png", // 画像あとでかえる
         },
       ],
       currentStageIndex: 0,
@@ -110,7 +112,14 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+
+ .p{
+  font-size: 20px;
+  font-weight: bold;
+ }
+ 
 .image-container {
   text-align: center;
 }
