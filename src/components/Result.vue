@@ -2,12 +2,14 @@
   <div>
     <div v-if="gameOver">
       <div class="image-container">
-      <img  class="background-fail" src="src/imgs/fail2.png" alt="" />
+      <img  class="background-fail" src="../imgs/fail2.png" alt="" />
       <button @click="restart">もう一度</button>
     </div>
+  </div>
+</div>
     <div v-if="gameWon">
       <div class="image-container">
-      <img  class="background-clear" src="src/imgs/clear.png" alt="" />
+      <img  class="background-clear" src="../imgs/clear.png" alt="" />
       <button @click="restart">再スタート</button>
     </div>
   </div>
@@ -59,4 +61,21 @@ export default {
    width: 100%;
    height: 100%;
   }
+</style>
+
+<style scoped>
+.image-container {
+  /* 画像のパスを指定 */
+  background-image: url('../imgs/0-start.png');
+  /* 画像を中央上部に配置 */
+  background-position: center top;
+  /* 画像を1回だけ表示 */
+  background-repeat: no-repeat;
+  /* 画像をコンテナのサイズに合わせてスケール */
+  background-size: cover;
+  /* 画像を固定位置に配置 */
+  background-attachment: fixed;
+  /* コンテナの高さを設定（必要に応じて） */
+  height: 100vh;
+}
 </style>

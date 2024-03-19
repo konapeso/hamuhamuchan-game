@@ -1,6 +1,5 @@
 <template>
     <div class="image-container">
-      <img  class="background-image" src="src/imgs/0-start.png" alt="" />
      <div class="content">
        <h1>ハムハムちゃん！</h1>
        <router-link to="/game">
@@ -10,13 +9,22 @@
     </div>
   </template>
   
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+  <div id-"app">
+    <img v-bind:src="img" class="background-image" /img>
+    </div>
+  
   <script>
-  export default {
-    methods: {
-      
-    }
-  };
+   new Vue ({
+     el: '#app',
+     data: {
+       img: '../imgs/0-start.png'
+     }
+   })
   </script>
+
 
 <style>
  .image-container {

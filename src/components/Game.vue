@@ -5,7 +5,6 @@
     <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
     <div class="image-container">
       <!-- ここに画像を挿入 -->
-      <img src="src/imgs/0-start.png" alt="" />
     </div>
     <Question
       v-if="!gameOver && !gameWon"
@@ -43,6 +42,7 @@ export default {
             "ため息をつく",
           ],
           correctAnswer: [0, 2, 3],
+          img: "../imgs/0-start.png", // 画像あとでかえる.複数選択にしたい。
         },
         {
           question: "エレベーターに乗るにはどうすれば！？",
@@ -53,6 +53,7 @@ export default {
             "譲ってもらえるまで待ってみる",
           ],
           correctAnswer: [0, 1],
+          img: "../imgs/0-start.png", // 画像あとでかえる
         },
         {
           question: "エレベーターに乗るにはどうすれば！？",
@@ -63,6 +64,7 @@ export default {
             "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
           ],
           correctAnswer: [2],
+          img: "../imgs/0-start.png", // 画像あとでかえる
         },
       ],
       currentStageIndex: 0,
