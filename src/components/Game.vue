@@ -117,10 +117,11 @@ export default {
 .choices-container {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* ボタンを縦一列に並べる */
+  align-items: center; /* ボタンを中央に配置 */
 }
 
 .choices-container button {
-  margin: 0 5px;
+  margin-bottom: 5px; /* ボタンの下に余白を設定 */
 }
 </style>
