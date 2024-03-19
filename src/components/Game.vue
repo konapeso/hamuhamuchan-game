@@ -4,9 +4,22 @@
     <p>ハムハムちゃん！</p>
     <p class="bold">ステージ{{ currentStageIndex + 1 }}</p>
     <div class="image-container">
-      <!-- ここに画像を挿入 -->
+      <!-- 選択肢がクリックされたときに表示される画像 -->
+      <img
+        v-if="currentChoiceImage"
+        :src="currentChoiceImage"
+        alt="Choice Image"
+      />
+      <!-- 問題が正解だった場合の画像 -->
+      <img
+        v-if="correctAnswerImage"
+        :src="correctAnswerImage"
+        alt="Correct Image"
+      />
+      <!-- 問題が不正解だった場合の画像 -->
+      <img v-if="wrongAnswerImage" :src="wrongAnswerImage" alt="Wrong Image" />
     </div>
-    
+
     <Question
       v-if="!gameOver && !gameWon"
       :question="currentQuestion.question"
@@ -19,12 +32,6 @@
       :gameWon="gameWon"
       @restart="restartGame"
     />
-    <!-- 選択肢の表示 -->
-    <div v-if="!gameOver && !gameWon" class="choices-container">
-      <button v-for="(choice, index) in currentQuestion.choices" :key="index" @click="checkAnswer(index)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        {{ choice }}
-      </button>
-    </div>
   </div>
 </template>
 
@@ -43,40 +50,34 @@ export default {
         {
           question: "エレベーターに乗るにはどうすれば！？",
           choices: [
-            "降りて欲しそうに見つめる",
-            "突撃する",
-            "「乗りたいんですけど〜」と言う",
-            "ため息をつく",
+            {
+              text: "降りて欲しそうに見つめる",
+              image: "url/to/image1.jpg",
+            },
+            {
+              text: "突撃する",
+              image: "url/to/image2.jpg",
+            },
+            {
+              text: "「乗りたいんですけど〜」と言う",
+              image: "url/to/image3.jpg",
+            },
+            {
+              text: "ため息をつく",
+              image: "url/to/image4.jpg",
+            },
           ],
           correctAnswer: [0, 2, 3],
-          img: "../imgs/0-start.png", // 画像あとでかえる.複数選択にしたい。
+          correctAnswerImage: "url/to/correct/image.jpg",
+          wrongAnswerImage: "url/to/wrong/image.jpg",
         },
-        {
-          question: "エレベーターに乗るにはどうすれば！？",
-          choices: [
-            "「小声ですみませんと言う」",
-            "「あの、15分ぐらい見送ってまして、、」と言う",
-            "舌打ちする",
-            "譲ってもらえるまで待ってみる",
-          ],
-          correctAnswer: [0, 1],
-          img: "../imgs/0-start.png", // 画像あとでかえる
-        },
-        {
-          question: "エレベーターに乗るにはどうすれば！？",
-          choices: [
-            "仁義を切る",
-            "「あ、UFOだ！」と言う",
-            "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
-            "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
-          ],
-          correctAnswer: [2],
-          img: "../imgs/0-start.png", // 画像あとでかえる
-        },
+        // 他のステージも同様に選択肢と画像を追加
       ],
       currentStageIndex: 0,
       correctAnswers: 0,
       wrongAnswers: 0,
+      // 選択肢がクリックされたときに表示される画像を保持するプロパティ
+      currentChoiceImage: null,
     };
   },
   computed: {
@@ -89,15 +90,36 @@ export default {
     gameWon() {
       return this.correctAnswers === this.stages.length;
     },
+    // 問題が正解だった場合の画像を取得する計算されたプロパティ
+    correctAnswerImage() {
+      return this.stages[this.currentStageIndex].correctAnswerImage;
+    },
+    // 問題が不正解だった場合の画像を取得する計算されたプロパティ
+    wrongAnswerImage() {
+      return this.stages[this.currentStageIndex].wrongAnswerImage;
+    },
   },
   methods: {
     checkAnswer(answerIndex) {
+      // 選択された選択肢に対応する画像を表示する
+      this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;
+
       if (this.currentQuestion.correctAnswer.includes(answerIndex)) {
         this.correctAnswers++;
-        this.moveToNextStage();
+        // 問題が正解だった場合の画像を表示する
+        this.currentChoiceImage = null; // 選択肢が表示される画像を消す
       } else {
         this.wrongAnswers++;
+        // 問題が不正解だった場合の画像を表示する
+        this.currentChoiceImage = null; // 選択肢が表示される画像を消す
       }
+
+      // 一定時間後に次のステージに進むなどの処理を実行する
+      setTimeout(() => {
+        this.moveToNextStage();
+        // 選択肢がクリックされたときの画像をリセットする
+        this.currentChoiceImage = null;
+      }, 2000); // 2秒後に次のステージに進む
     },
     moveToNextStage() {
       if (this.currentStageIndex < this.stages.length - 1) {
@@ -108,29 +130,20 @@ export default {
       this.currentStageIndex = 0;
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
+      // 選択肢がクリックされたときの画像をリセットする
+      this.currentChoiceImage = null;
     },
   },
 };
 </script>
 
 <style scoped>
-
- .p{
+.p {
   font-size: 20px;
   font-weight: bold;
- }
- 
-.image-container {
-  text-align: center;
-}
-.choices-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column; /* ボタンを縦一列に並べる */
-  align-items: center; /* ボタンを中央に配置 */
 }
 
-.choices-container button {
-  margin-bottom: 5px; /* ボタンの下に余白を設定 */
+.image-container {
+  text-align: center;
 }
 </style>
