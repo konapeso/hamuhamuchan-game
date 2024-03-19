@@ -12,12 +12,6 @@
         :src="currentQuestionImage"
         alt="Question Image"
       />
-      <!-- 選択肢がクリックされたときに表示される画像 -->
-      <!-- <img
-        v-if="currentChoiceImage"
-        :src="currentChoiceImage"
-        alt="Choice Image"
-      /> -->
       <!-- 問題が正解だった場合の画像 -->
       <img
         v-if="displayCorrectImage"
@@ -26,6 +20,8 @@
       />
       <!-- 問題が不正解だった場合の画像 -->
       <img v-if="displayWrongImage" :src="wrongAnswerImage" alt="Wrong Image" />
+      <!-- ゲームがクリアされた場合の画像 -->
+      <img v-if="gameWon" :src="clearImage" alt="Clear Image" />
     </div>
 
     <Question
@@ -149,39 +145,30 @@ export default {
       currentStageIndex: 0,
       correctAnswers: 0,
       wrongAnswers: 0,
-      // 選択肢がクリックされたときに表示される画像を保持するプロパティ
       currentChoiceImage: null,
-      // 各ステージの質問画像を追加
       questionImages: [
         FirstQuestionImage,
         SecondQuestionImage,
         ThirdQuestionImage,
       ],
-      // 正解不正解画像を表示するためのフラグを追加
       displayCorrectImage: false,
       displayWrongImage: false,
+      gameWon: false,
+      clearImage: ClearImage,
     };
   },
   computed: {
     currentQuestion() {
-      // currentStageIndex が stages 配列の最後の要素を超えている場合は gameWon を返す
-      if (this.currentStageIndex >= this.stages.length) {
-        return {
-          gameWon: true,
-        };
-      } else {
-        return this.stages[this.currentStageIndex];
-      }
+      return this.stages[this.currentStageIndex];
     },
     gameOver() {
       return this.wrongAnswers > 0;
     },
-    gameWon() {
-      return this.correctAnswers === this.stages.length;
-    },
     // 現在のステージに対応する質問画像を取得する計算されたプロパティ
     currentQuestionImage() {
-      if (this.currentChoiceImage) {
+      if (this.gameWon) {
+        return null; // ゲームが勝利した場合はnullを返す
+      } else if (this.currentChoiceImage) {
         return this.currentChoiceImage;
       } else {
         return this.questionImages[this.currentStageIndex];
@@ -198,23 +185,21 @@ export default {
   },
   methods: {
     checkAnswer(answerIndex) {
-      // 選択された選択肢に対応する画像を表示する
       this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;
-
       const isCorrect =
         this.currentQuestion.correctAnswer.includes(answerIndex);
-
-      // 選択肢画像を2秒間表示する
       setTimeout(() => {
         this.currentChoiceImage = null;
-        this.$forceUpdate(); // コンポーネントを強制的に再描画する
-
+        this.$forceUpdate();
         if (isCorrect) {
-          // 正解画像を2秒間表示する
           this.displayCorrectImage = true;
           setTimeout(() => {
             this.displayCorrectImage = false;
-            this.moveToNextStage();
+            if (this.currentStageIndex === 2) {
+              this.gameWon = true; // ゲームを勝利とマーク
+            } else {
+              this.moveToNextStage();
+            }
           }, 2000);
         } else {
           this.wrongAnswers++;
@@ -225,7 +210,6 @@ export default {
     moveToNextStage() {
       if (this.currentStageIndex < this.stages.length - 1) {
         this.currentStageIndex++;
-        // 次のステージに進む前に、currentChoiceImageをクリアする
         this.currentChoiceImage = null;
       }
     },
@@ -239,7 +223,7 @@ export default {
       this.currentStageIndex = 0;
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
-      // 画像をリセットする
+      this.gameWon = false;
       this.resetImages();
     },
   },
