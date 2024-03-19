@@ -2,7 +2,6 @@
   <div class="button-container">
     <div v-if="gameOver">
       <div class="image-container">
-        <img class="background-fail" src="../imgs/fail2.png" alt="" />
         <p>ゲームオーバー！</p>
         <button
           @click="restart"
@@ -15,7 +14,6 @@
   </div>
   <div v-if="gameWon">
     <div class="image-container">
-      <img class="background-clear" src="../imgs/clear.png" alt="" />
       <p>クリア！</p>
       <button
         @click="restart"
