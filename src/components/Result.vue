@@ -1,5 +1,5 @@
 <template>
-  <div class="button-container">
+  <div class="absolute bottom-3 left-0 right-0">
     <div v-if="gameOver" class="flex justify-center">
       <div>
         <button
@@ -10,15 +10,16 @@
         </button>
       </div>
     </div>
-  </div>
-  <div v-if="gameWon" class="flex justify-center">
-    <div>
-      <button
-        @click="restart"
-        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-      >
-        再スタート
-      </button>
+
+    <div v-if="gameWon" class="flex justify-center">
+      <div>
+        <button
+          @click="restart"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        >
+          再スタート
+        </button>
+      </div>
     </div>
   </div>
 </template>
