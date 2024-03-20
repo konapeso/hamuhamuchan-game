@@ -1,11 +1,9 @@
 <template>
   <div class="mt-20 flex flex-col items-center">
-    <!-- 使用する要素にtransitionを追加 -->
     <transition name="fade">
       <p class="text-xl font-bold mb-3" v-if="showQuestion">{{ question }}</p>
     </transition>
     <transition-group name="fade">
-      <!-- choices を直接表示せずに、条件に応じて遅延表示する -->
       <div v-if="showChoices" class="w-full flex flex-col items-center">
         <button
           v-for="(choice, index) in choices"
@@ -35,14 +33,12 @@ export default {
     },
   },
   mounted() {
-    // マウントされたときに遅延して質問を表示
     setTimeout(() => {
       this.showQuestion = true;
-    }, 100); // 1000ミリ秒（1秒）の遅延
-    // マウントされたときに遅延して選択肢を表示
+    }, 1000);
     setTimeout(() => {
       this.showChoices = true;
-    }, 1500); // 2000ミリ秒（2秒）の遅延
+    }, 2000);
   },
 };
 </script>

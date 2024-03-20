@@ -1,29 +1,54 @@
-# hamuhamuchan-game
+## 対戦型エレベーターゲーム〜仁義なきハムハムちゃん〜
 
-This template should help get you started developing with Vue 3 in Vite.
+**Dots to Code ハッカソンで作成されたブラウザゲーム**
 
-## Recommended IDE Setup
+**チームメンバー:**
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- [@kayokaw](https://github.com/kayokaw)
+- [@mursakix1](https://github.com/mursakix1)
+- [@ko1358](https://github.com/ko1358)
+- [@konapeso](https://github.com/konapeso)
 
-## Customize configuration
+**概要:**
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Vue.js で作成された対戦型エレベーターゲームです。
 
-## Project Setup
+**ターゲット:**
 
-```sh
-npm install
-```
+- 困った人を助けたいけど、助け方がわからない人
+- 人を助けるのが恥ずかしいと感じる人
 
-### Compile and Hot-Reload for Development
+**コンセプト:**
 
-```sh
-npm run dev
-```
+「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲーム
 
-### Compile and Minify for Production
+**ストーリー:**
 
-```sh
-npm run build
-```
+ショッピングモールで上の階に行きたい。でもエレベータが満員。
+
+**ゲーム内容:**
+
+満員のエレベーターに車椅子を入れるためには、他の乗客とコミュニケーションを取って協力してもらう必要があります。嫌味を言われたり、舌打ちをされたりしながらも、何とか車椅子を乗せることができればクリアです。
+
+**プレイ動画:**
+
+![仁義なきハムハムちゃん](/public/0-start.png)
+
+**開発環境:**
+
+- Vue.js
+- Vite
+
+**使い方:**
+
+1. `npm install`を実行してプロジェクトをインストールします。
+2. `npm run dev`を実行して開発サーバーを起動します。
+3. ブラウザで`http://localhost:3000`を開きます。
+
+**その他:**
+
+- このゲームは、ユーモアを交えて社会問題を題材にしたシュールなゲームです。
+- ゲームを通して、コミュニケーションの大切さを学んでいただければ幸いです。
+
+**ご意見・ご感想:**
+ゲームの感想やご意見は、GitHub リポジトリ: [hamuhamuchan-game.git](https://github.com/konapeso/hamuhamuchan-game.git)。

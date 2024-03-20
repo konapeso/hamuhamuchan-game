@@ -1,4 +1,3 @@
-<!-- src/components/Game.vue -->
 <template>
   <div class="flex flex-col items-center justify-center h-screen">
     <div>
@@ -182,7 +181,7 @@ export default {
     // 現在のステージに対応する質問画像を取得する計算されたプロパティ
     currentQuestionImage() {
       if (this.gameWon) {
-        return null; // ゲームが勝利した場合はnullを返す
+        return null;
       } else if (this.currentChoiceImage) {
         return this.currentChoiceImage;
       } else {
@@ -211,7 +210,7 @@ export default {
           setTimeout(() => {
             this.displayCorrectImage = false;
             if (this.currentStageIndex === 2) {
-              this.gameWon = true; // ゲームを勝利とマーク
+              this.gameWon = true;
             } else {
               this.moveToNextStage();
             }
@@ -230,7 +229,6 @@ export default {
       }
     },
     resetImages() {
-      // 画像をリセットする
       this.currentChoiceImage = null;
       this.displayCorrectImage = false;
       this.displayWrongImage = false;
