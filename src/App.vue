@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <router-view />
-    <!-- ルーティングされたコンポーネントを表示 -->
+    <Header /> <!-- ヘッダーコンポーネントを追加 -->
+    <router-view /> <!-- ルーティングされたコンポーネントを表示 -->
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'; // Header コンポーネントをインポート
+
 export default {
-  name: "App",
+  name: 'App',
+  components: {
+    Header // コンポーネントを登録
+  }
 };
 </script>
 
@@ -21,3 +26,10 @@ body {
   background-color: #fdf5df;
 }
 </style>
+
+      
+  
+
+
+
+
