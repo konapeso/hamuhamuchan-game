@@ -113,11 +113,11 @@ export default {
           choices: [
             {
               text: "「小声ですみませんと言う」",
-              image: SecondUImage,
+              image: FirstTImage,
             },
             {
               text: "「あの、15分ぐらい見送ってまして、、」と言う",
-              image: SecondUImage,
+              image: FirstTImageImage,
             },
             {
               text: "舌打ちする",
@@ -137,19 +137,19 @@ export default {
           choices: [
             {
               text: "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
-              image: ThirdSImage,
+              image: FirstTImage,
             },
             {
               text: "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
-              image: ThirdSImage,
+              image: ThirdUImage,
             },
             {
               text: "仁義を切る",
-              image: ThirdTImage,
+              image: ThirdSImage,
             },
             {
               text: "「あ、UFOだ！」と言う",
-              image: ThirdUImage,
+              image: ThirdTImage,
             },
           ],
           correctAnswer: [0],
