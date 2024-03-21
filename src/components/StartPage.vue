@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import startImage from "@/assets/images/0-start.png";
+import startImage from "@/assets/images/0-start-min.png";
 export default {
   data() {
     return {
