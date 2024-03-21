@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div
+    class="flex flex-col items-center justify-center h-screen -mt-56 md:mt-0 lg:mt-0"
+  >
     <div>
       <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
     </div>
@@ -30,8 +32,8 @@
       <!-- ゲームがクリアされた場合の画像 -->
       <img v-if="gameWon" :src="clearImage" alt="Clear Image" class="mx-auto" />
       <Result
-        v-if="gameWon || gameOver"
-        :gameOver="gameOver"
+        v-if="gameWon || isGameOver"
+        :gameOver="isGameOver"
         :gameWon="gameWon"
         @restart="restartGame"
       />
@@ -175,7 +177,7 @@ export default {
     currentQuestion() {
       return this.stages[this.currentStageIndex];
     },
-    gameOver() {
+    isGameOver() {
       return this.wrongAnswers > 0;
     },
     // 現在のステージに対応する質問画像を取得する計算されたプロパティ
@@ -238,6 +240,7 @@ export default {
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
       this.gameWon = false;
+      this.gameOver = false;
       this.resetImages();
     },
   },

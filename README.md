@@ -30,7 +30,7 @@ Vue.js で作成された対戦型エレベーターゲームです。
 
 満員のエレベーターに車椅子を入れるためには、他の乗客とコミュニケーションを取って協力してもらう必要があります。嫌味を言われたり、舌打ちをされたりしながらも、何とか車椅子を乗せることができればクリアです。
 
-**プレイ動画:**
+**プレイ画面:**
 
 ![仁義なきハムハムちゃん](/public/0-start.png)
 
@@ -51,4 +51,5 @@ Vue.js で作成された対戦型エレベーターゲームです。
 - ゲームを通して、コミュニケーションの大切さを学んでいただければ幸いです。
 
 **ご意見・ご感想:**
-ゲームの感想やご意見は、GitHub リポジトリ: [hamuhamuchan-game.git](https://github.com/konapeso/hamuhamuchan-game.git)。
+
+ゲームの感想やご意見は、GitHub リポジトリ: [hamuhamuchan-game.git](https://github.com/konapeso/hamuhamuchan-game.git)まで。
