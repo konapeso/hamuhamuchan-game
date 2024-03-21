@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col justify-center h-screen">
       <div class="sm:max-w-full md:w-3/5 mx-auto relative">
-        <img :src="startImage" alt="" />
+        <img :src="IntroductionImage" alt="ゲーム背景" />
   
         <div class="absolute bottom-3 left-0 right-0 flex justify-center">
           <router-link to="/game">
@@ -11,15 +11,26 @@
             </button>
           </router-link>
         </div>
+        <!-- 追加した文章 -->
+        <p class="text-center text-lg mb-3" style="font-family: 'Arial', sans-serif;">
+        車椅子ユーザーのハムハムちゃん。<br>
+        ショッピングモールで上の階にいきたいけど、来るエレベーターはどれも満員。<br>
+        ドアが開いて車椅子のハムハムちゃんを見ても、みんな知らん顔で、乗ることができません。<br>
+        <br>
+        満員のエレベーターに車椅子でどうやって入るのか！？<br>
+        ４つの選択肢の中から一つを選んで、余裕のある人に譲ってもらおう。<br>
+        制限時間内にエレベーターに乗れたらクリア。<br>
+        <br>
+        戦略やコミュニケーション力が問われる、ハムハムちゃんV S満員エレベータの対戦型ブラウザゲームです。</p>
       </div>
     </div>
   </template>
   <script>
-  import startImage from "@/assets/images/0-start.png";
+  import IntroductionImage from "@/assets/images/1st-1.png";
   export default {
     data() {
       return {
-        startImage: startImage,
+        IntroductionImage: IntroductionImage,
       };
     },
   };
