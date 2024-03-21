@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center h-screen">
+  <div class="flex flex-col justify-center h-screen -mt-54 md:mt-0 lg:mt-0">
     <div class="sm:max-w-full md:w-3/5 mx-auto relative">
       <img :src="startImage" alt="スタート！" />
 

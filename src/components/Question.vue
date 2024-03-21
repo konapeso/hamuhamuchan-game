@@ -1,7 +1,9 @@
 <template>
-  <div class="mt-20 flex flex-col items-center">
+  <div class="mt-10 md:mt-18 lg:mt-20 flex flex-col items-center">
     <transition name="fade">
-      <p class="text-xl font-bold mb-3" v-if="showQuestion">{{ question }}</p>
+      <p class="text-lg md:text-xl font-bold mb-1 md:mb-3" v-if="showQuestion">
+        {{ question }}
+      </p>
     </transition>
     <transition-group name="fade">
       <div v-if="showChoices" class="w-full flex flex-col items-center">
@@ -9,7 +11,7 @@
           v-for="(choice, index) in choices"
           :key="index"
           @click="selectAnswer(index)"
-          class="bg-blue-500 hover:bg-blue-700 opacity-80 text-white font-bold py-2 px-4 mb-3 rounded"
+          class="bg-blue-500 hover:bg-blue-700 opacity-80 text-white font-bold py-1 md:py-2 px-4 mb-2 md:mb-3 rounded"
         >
           {{ choice.text }}
         </button>
