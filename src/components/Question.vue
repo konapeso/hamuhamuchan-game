@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10 md:mt-18 lg:mt-20 flex flex-col items-center">
+  <div class="mt-10 md:mt-18 lg:mt-24 flex flex-col items-center">
     <transition name="fade">
       <p class="text-lg md:text-xl font-bold mb-1 md:mb-3" v-if="showQuestion">
         {{ question }}

@@ -51,4 +51,5 @@ Vue.js で作成された対戦型エレベーターゲームです。
 - ゲームを通して、コミュニケーションの大切さを学んでいただければ幸いです。
 
 **ご意見・ご感想:**
-ゲームの感想やご意見は、GitHub リポジトリ: [hamuhamuchan-game.git](https://github.com/konapeso/hamuhamuchan-game.git)。
+
+ゲームの感想やご意見は、GitHub リポジトリ: [hamuhamuchan-game.git](https://github.com/konapeso/hamuhamuchan-game.git)まで。
