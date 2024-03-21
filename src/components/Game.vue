@@ -58,23 +58,23 @@
 import Question from "./Question.vue";
 import Result from "./Result.vue";
 
-import FirstClearImage from "@/assets/images/1st-won.png";
-import FirstQuestionImage from "@/assets/images/1st-q.png";
-import SecondClearImage from "@/assets/images/2nd-won.png";
-import SecondQuestionImage from "@/assets/images/2nd-q.png";
-import ThirdClearImage from "@/assets/images/3rd-won.png";
-import ThirdQuestionImage from "@/assets/images/3rd-q.png";
-import ClearImage from "@/assets/images/clear.png";
-import FailImage from "@/assets/images/fail2.png";
-import FirstRImage from "@/assets/images/1st-r-1.png";
-import FirstSImage from "@/assets/images/1st-s-1.png";
-import FirstTImage from "@/assets/images/1st-t-1.png";
-import FirstUImage from "@/assets/images/1st-u-1.png";
-import SecondTImage from "@/assets/images/2nd-t-1.png";
-import SecondUImage from "@/assets/images/2nd-u-1.png";
-import ThirdSImage from "@/assets/images/3rd-s-1.png";
-import ThirdTImage from "@/assets/images/3rd-t-1.png";
-import ThirdUImage from "@/assets/images/3rd-u-1.png";
+import FirstClearImage from "@/assets/images/1st-won-min.png";
+import FirstQuestionImage from "@/assets/images/1st-q-min.png";
+import SecondClearImage from "@/assets/images/2nd-won-min.png";
+import SecondQuestionImage from "@/assets/images/2nd-q-min.png";
+import ThirdClearImage from "@/assets/images/3rd-won-min.png";
+import ThirdQuestionImage from "@/assets/images/3rd-q-min.png";
+import ClearImage from "@/assets/images/clear-min.png";
+import FailImage from "@/assets/images/fail2-min.png";
+import FirstRImage from "@/assets/images/1st-r-1-min.png";
+import FirstSImage from "@/assets/images/1st-s-1-min.png";
+import FirstTImage from "@/assets/images/1st-t-1-min.png";
+import FirstUImage from "@/assets/images/1st-u-1-min.png";
+import SecondTImage from "@/assets/images/2nd-t-1-min.png";
+import SecondUImage from "@/assets/images/2nd-u-1-min.png";
+import ThirdSImage from "@/assets/images/3rd-s-1-min.png";
+import ThirdTImage from "@/assets/images/3rd-t-1-min.png";
+import ThirdUImage from "@/assets/images/3rd-u-1-min.png";
 
 export default {
   components: {
@@ -113,11 +113,11 @@ export default {
           choices: [
             {
               text: "「小声ですみませんと言う」",
-              image: SecondUImage,
+              image: FirstTImage,
             },
             {
               text: "「あの、15分ぐらい見送ってまして、、」と言う",
-              image: SecondUImage,
+              image: FirstTImageImage,
             },
             {
               text: "舌打ちする",
@@ -137,19 +137,19 @@ export default {
           choices: [
             {
               text: "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
-              image: ThirdSImage,
+              image: FirstTImage,
             },
             {
               text: "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
-              image: ThirdSImage,
+              image: ThirdUImage,
             },
             {
               text: "仁義を切る",
-              image: ThirdTImage,
+              image: ThirdSImage,
             },
             {
               text: "「あ、UFOだ！」と言う",
-              image: ThirdUImage,
+              image: ThirdTImage,
             },
           ],
           correctAnswer: [0],
