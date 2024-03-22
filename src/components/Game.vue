@@ -117,7 +117,7 @@ export default {
             },
             {
               text: "「あの、15分ぐらい見送ってまして、、」と言う",
-              image: FirstTImageImage,
+              image: FirstTImage,
             },
             {
               text: "舌打ちする",
