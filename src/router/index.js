@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import StartPage from '../components/StartPage.vue';
+import Introduction from '../components/Introduction.vue';
 import Game from "../components/Game.vue"; // ゲームコンポーネントのパスを適切に設定する
 
 const routes = [
@@ -7,6 +8,11 @@ const routes = [
     path: '/',
     name: 'StartPage',
     component: StartPage
+  },
+  {
+    path: '/introduction',
+    name: 'Introduction',
+    component: Introduction
   },
   {
     path: "/game",
