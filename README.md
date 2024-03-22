@@ -1,6 +1,7 @@
 ## 対戦型エレベーターゲーム〜仁義なきハムハムちゃん〜
 
 **Dots to Code ハッカソンで作成されたブラウザゲーム**
+[https://hamuhamuchan.netlify.app](https://hamuhamuchan.netlify.app)
 
 **チームメンバー:**
 
@@ -43,7 +44,7 @@ Vue.js で作成された対戦型エレベーターゲームです。
 
 1. `npm install`を実行してプロジェクトをインストールします。
 2. `npm run dev`を実行して開発サーバーを起動します。
-3. ブラウザで`http://localhost:3000`を開きます。
+3. ブラウザで`[http://localhost:5173](http://localhost:5173)`を開きます。
 
 **その他:**
 
