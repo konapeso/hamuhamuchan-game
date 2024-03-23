@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center h-screen">
-    <div class="sm:max-w-full md:w-3/5 mx-auto relative">
+    <div class="sm:max-w-full md:w-3/5 mt-20 md:mt-0 mx-auto relative">
       <img
         :src="IntroductionImage"
         alt="ゲーム背景"
