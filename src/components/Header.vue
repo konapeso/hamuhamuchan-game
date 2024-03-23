@@ -1,17 +1,19 @@
 <template>
   <header class="mb-auto">
     <nav
-      class="fixed top-0 left-0 w-full z-10 bg-green-200 md:p-6 p-4 flex justify-between items-center"
+      class="fixed top-0 left-0 w-full z-10 bg-green-200 p-4 flex justify-between items-center"
       :style="{ backgroundColor: backgroundColor }"
     >
       <router-link
         to="/"
         class="flex items-center flex-shrink-0 text-gray-800 mr-6"
       >
-        <span
-          class="font-semibold md:text-xl sm:text-sm tracking-tight hover:text-gray-600"
-          >{{ title }}</span
-        >
+        <img :src="logoJingi" alt="仁義なき" class="w-auto h-10 md:h-12" />
+        <img
+          :src="logoHamu"
+          alt="ハムハムちゃん"
+          class="w-auto h-10 md:h-12 -ml-3 -mt-3"
+        />
       </router-link>
 
       <div class="flex items-center space-x-2 md:space-x-4">
@@ -31,6 +33,8 @@
 import XIcon from "@/assets/icons/x-icon.png";
 import LineIcon from "@/assets/icons/line-icon.png";
 import ogImage from "@/assets/images/0-start-min.png";
+import LogoImage from "@/assets/images/logo-hamu.png";
+import LogoJingi from "@/assets/images/logo-jingi.png";
 
 export default {
   name: "Header",
@@ -57,6 +61,12 @@ export default {
     },
     lineIcon() {
       return LineIcon;
+    },
+    logoHamu() {
+      return LogoImage;
+    },
+    logoJingi() {
+      return LogoJingi;
     },
   },
 };
