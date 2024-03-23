@@ -11,7 +11,7 @@
           v-for="(choice, index) in choices"
           :key="index"
           @click="selectAnswer(index)"
-          class="bg-blue-500 hover:bg-blue-700 opacity-80 text-white font-bold py-1 md:py-2 px-4 mb-2 md:mb-3 rounded"
+          class="text-yellow-500 border-2 border-yellow-500 font-semibold bg-white hover:bg-yellow-500 hover:text-white opacity-90 py-1 md:py-2 px-4 mb-2 md:mb-3 rounded transition-colors duration-300"
         >
           {{ choice.text }}
         </button>

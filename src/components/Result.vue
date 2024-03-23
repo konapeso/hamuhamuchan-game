@@ -4,7 +4,7 @@
       <div>
         <button
           @click="restart"
-          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded"
         >
           もう一度
         </button>
@@ -15,7 +15,7 @@
       <div>
         <button
           @click="restart"
-          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded"
         >
           再スタート
         </button>
