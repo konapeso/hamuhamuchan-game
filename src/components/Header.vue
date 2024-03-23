@@ -22,7 +22,7 @@
           <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9" />
         </a>
         <a :href="lineURL" target="_blank" rel="noopener noreferrer">
-          <img :src="lineIcon" alt="LINE" class="w-9 h-9 md:w-10 md:h-10" />
+          <img :src="lineIcon" alt="LINE" class="w-8 h-8 md:w-9 md:h-9" />
         </a>
       </div>
     </nav>
