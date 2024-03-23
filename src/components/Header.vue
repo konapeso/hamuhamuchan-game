@@ -1,7 +1,7 @@
 <template>
   <header class="mb-auto">
     <nav
-      class="fixed top-0 left-0 w-full z-10 bg-green-200 md:p-5 p-4 flex justify-between items-center"
+      class="fixed top-0 left-0 w-full z-10 bg-green-200 p-2 md:p-4 flex justify-between items-center"
       :style="{ backgroundColor: backgroundColor }"
     >
       <router-link
