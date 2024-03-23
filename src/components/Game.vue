@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-screen -mt-48 md:mt-0 lg:mt-0"
+    class="flex flex-col items-center justify-center h-screen  lg:mt-0"
   >
     <div>
       <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
