@@ -26,7 +26,7 @@
       <div class="text-center">
         <router-link to="/game">
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            class="text-yellow-500 border-2 border-yellow-500 font-semibold bg-white hover:bg-yellow-500 hover:text-white opacity-90 py-2 px-6 mb-3 rounded transition-colors duration-300"
           >
             進む
           </button>
