@@ -19,10 +19,10 @@
       <div class="flex items-center space-x-2 md:space-x-4">
         <p class="text-gray-800 text-xs md:text-sm">友達にシェアしよう！</p>
         <a :href="xURL" target="_blank" rel="noopener noreferrer">
-         <img :src="xIcon" alt="X" class="object-contain w-full h-full" />
+         <img :src="xIcon" alt="X" class="object-contain" />
         </a>
         <a :href="lineURL" target="_blank" rel="noopener noreferrer">
-         <img :src="lineIcon" alt="LINE" class="object-contain w-full h-full" />
+         <img :src="lineIcon" alt="LINE" class="object-contain" />
         </a>
       </div>
     </nav>
