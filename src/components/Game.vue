@@ -48,7 +48,7 @@
         :question="currentQuestion.question"
         :choices="currentQuestion.choices"
         @answer="checkAnswer"
-        class="absolute"
+        class="absolute text-center"
       />
     </div>
   </div>
