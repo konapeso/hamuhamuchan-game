@@ -9,7 +9,7 @@
       </router-link>
 
       <div class="flex items-center space-x-2 md:space-x-4">
-        <p class="text-gray-800 text-xs md:text-sm">友達にシェアしよう！</p>
+        <p class="text-gray-800 text-xs md:text-sm">友達にシェアしよ！</p>
         <a :href="xURL" target="_blank" rel="noopener noreferrer">
           <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9" />
         </a>
