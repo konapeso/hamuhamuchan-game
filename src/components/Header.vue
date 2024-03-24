@@ -5,15 +5,9 @@
       :style="{ backgroundColor: backgroundColor }"
     >
       <router-link
-        to="/"
-        class="flex items-center flex-shrink-0 text-gray-800 mr-6"
-      >
+        to="/" class="flex items-center flex-shrink-0 text-gray-800 mr-6">
         <img :src="logoJingi" alt="仁義なき" class="w-auto h-10 md:h-12" />
-        <img
-          :src="logoHamu"
-          alt="ハムハムちゃん"
-          class="w-auto h-10 md:h-12 -ml-3 -mt-3"
-        />
+        <img :src="logoHamu" alt="ハムハムちゃん" class="w-auto h-10 md:h-12 -ml-3 -mt-3" />
       </router-link>
 
       <div class="flex items-center space-x-2 md:space-x-4">
