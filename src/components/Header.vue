@@ -13,10 +13,10 @@
       <div class="flex items-center space-x-2 md:space-x-4">
         <p class="text-gray-800 text-xs md:text-sm">友達にシェアしよう！</p>
         <a :href="xURL" target="_blank" rel="noopener noreferrer">
-          <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9" />
+          <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9 sm:w-8 sm:h-8 object-cover" />
         </a>
         <a :href="lineURL" target="_blank" rel="noopener noreferrer">
-          <img :src="lineIcon" alt="LINE" class="w-9 h-9 md:w-10 md:h-10" />
+          <img :src="lineIcon" alt="LINE" class="w-9 h-9 md:w-10 md:h-10 sm:w-9 sm:h-9 object-cover" />
         </a>
       </div>
     </nav>
