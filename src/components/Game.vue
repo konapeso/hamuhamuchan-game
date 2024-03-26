@@ -2,19 +2,23 @@
   <div>
     <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
   </div>
-  <QuestionImage
-    :currentQuestionImage="currentQuestionImage"
-    :displayCorrectImage="displayCorrectImage"
-    :displayWrongImage="displayWrongImage"
-    :gameWon="gameWon"
-    :correctAnswerImage="correctAnswerImage"
-    :wrongAnswerImage="wrongAnswerImage"
-    :clearImage="clearImage"
-  />
+  <div class="absolute inset-0 flex justify-center items-center">
+    <QuestionImage
+      :currentQuestionImage="currentQuestionImage"
+      :displayCorrectImage="displayCorrectImage"
+      :displayWrongImage="displayWrongImage"
+      :gameWon="gameWon"
+      :correctAnswerImage="correctAnswerImage"
+      :wrongAnswerImage="wrongAnswerImage"
+      :clearImage="clearImage"
+    />
+  </div>
   <Question
+    :key="questionKey"
     v-if="!displayCorrectImage && !displayWrongImage && !gameWon && !gameOver"
     :question="$parent.stages[currentStageIndex].question"
     :choices="$parent.stages[currentStageIndex].choices"
+    :isVisible="isQuestionVisible"
     @answer="handleAnswer"
   />
 </template>
@@ -44,6 +48,8 @@ export default {
     return {
       currentChoiceImage: null,
       gameOver: false,
+      questionKey: 0,
+      isQuestionVisible: true,
     };
   },
   computed: {
@@ -62,6 +68,7 @@ export default {
       this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;
       const isCorrect =
         this.currentQuestion.correctAnswer.includes(answerIndex);
+      this.isQuestionVisible = false;
       setTimeout(() => {
         this.currentChoiceImage = null;
         this.$forceUpdate();
@@ -69,7 +76,11 @@ export default {
           if (this.currentStageIndex === 2) {
             this.$emit("gameWon");
           } else {
-            this.$emit("next");
+            this.questionKey += 1;
+            this.$nextTick(() => {
+              this.isQuestionVisible = true;
+              this.$emit("next");
+            });
           }
         } else {
           this.gameOver = true;
