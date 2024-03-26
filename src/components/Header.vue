@@ -6,7 +6,7 @@
     >
       <a
         href="/"
-        class="flex items-center flex-shrink-0 text-gray-800 mr-6"
+        class="flex items-center flex-shrink-0 text-gray-800 md:mr-6"
         @click="handleHeaderClick"
       >
         <img :src="logoJingi" alt="仁義なき" class="w-auto h-7" />

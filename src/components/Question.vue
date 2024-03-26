@@ -2,7 +2,11 @@
   <div class="max-w-md w-full relative">
     <transition name="fade">
       <div v-if="isVisible" class="question text-center">
-        <p class="text-lg md:text-xl font-bold mb-1 md:mb-3">{{ question }}</p>
+        <p
+          class="bg-orange-50 bg-opacity-80 text-lg md:text-xl font-bold mb-1 md:mb-3"
+        >
+          {{ question }}
+        </p>
         <ul class="mx-2">
           <li v-for="(choice, index) in choices" :key="index">
             <button
@@ -29,7 +33,9 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active,
+.fade-enter-active {
+  transition: opacity 2s ease;
+}
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
