@@ -36,17 +36,17 @@ export default {
   props: {
     currentStageIndex: Number,
     currentQuestion: Object,
-    displayCorrectImage: Boolean,
-    displayWrongImage: Boolean,
     gameWon: Boolean,
-    correctAnswerImage: String,
-    wrongAnswerImage: String,
     clearImage: String,
     questionImages: Array,
   },
   data() {
     return {
+      displayCorrectImage: false,
+      displayWrongImage: false,
       currentChoiceImage: null,
+      correctAnswerImage: null,
+      wrongAnswerImage: null,
       gameOver: false,
       questionKey: 0,
       isQuestionVisible: true,
@@ -73,15 +73,20 @@ export default {
         this.currentChoiceImage = null;
         this.$forceUpdate();
         if (isCorrect) {
-          if (this.currentStageIndex === 2) {
-            this.$emit("gameWon");
-          } else {
-            this.questionKey += 1;
-            this.$nextTick(() => {
-              this.isQuestionVisible = true;
-              this.$emit("next");
-            });
-          }
+          this.displayCorrectImage = true;
+          this.correctAnswerImage = this.currentQuestion.correctAnswerImage;
+          setTimeout(() => {
+            if (this.currentStageIndex === 2) {
+              this.$emit("gameWon");
+            } else {
+              this.questionKey += 1;
+              this.$nextTick(() => {
+                this.isQuestionVisible = true;
+                this.displayCorrectImage = false;
+                this.$emit("next");
+              });
+            }
+          }, 2000);
         } else {
           this.gameOver = true;
           this.$emit("gameOver");
