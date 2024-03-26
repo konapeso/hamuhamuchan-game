@@ -20,10 +20,12 @@
       @restart="restartGame"
     />
   </div>
+  <Footer v-if="isMobileScreen" />
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 import Start from "@/components/Start.vue";
 import Introduction from "@/components/Introduction.vue";
 import Game from "@/components/Game.vue";
@@ -126,6 +128,7 @@ export default {
   name: "App",
   components: {
     Header,
+    Footer,
     Start,
     Introduction,
     Game,
@@ -151,6 +154,7 @@ export default {
       gameWon: false,
       gameOver: false,
       clearImage: ClearImage,
+      isMobileScreen: false,
     };
   },
   computed: {
@@ -215,6 +219,14 @@ export default {
       this.gameWon = false;
       this.gameOver = false;
     },
+  },
+  mounted() {
+    // スマートフォン画面かどうかをチェックする
+    this.isMobileScreen = window.matchMedia("(max-width: 767px)").matches;
+    // ウィンドウのサイズが変更された場合に再度チェックする
+    window.addEventListener("resize", () => {
+      this.isMobileScreen = window.matchMedia("(max-width: 767px)").matches;
+    });
   },
 };
 </script>
