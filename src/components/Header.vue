@@ -38,10 +38,10 @@ export default {
   name: "Header",
   data() {
     return {
-      title: "対戦型エレベーターゲーム〜仁義なきハムハムちゃん〜",
+      title: "〜仁義なきハムハムちゃん〜",
       backgroundColor: "#D6E5CB",
       discription:
-        "「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲームです🐹",
+        "車椅子ユーザーのハムハムちゃん🐹満員エレベーターにどうやって入るのか🛗⁉️「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲーム🎮",
       hashtags: "#DotsToCode",
     };
   },
@@ -50,7 +50,7 @@ export default {
       return window.location.href;
     },
     xURL() {
-      const text = `${this.title} ${this.discription} ${this.hashtags}`;
+      const text = `${this.discription}\n${this.title} ${this.hashtags}`;
       const encodedText = encodeURIComponent(text);
       return `https://twitter.com/intent/tweet?url=${this.url}&text=${encodedText}&image=${ogImage}`;
     },
