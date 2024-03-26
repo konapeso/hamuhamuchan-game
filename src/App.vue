@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="flex flex-col items-center justify-center h-screen">
     <Start v-if="showStart" @start="handleStart" />
     <Introduction v-if="showIntroduction" @proceed="startGame" />
@@ -46,6 +47,81 @@ import ThirdSImage from "@/assets/images/3rd-s-1-min.png";
 import ThirdTImage from "@/assets/images/3rd-t-1-min.png";
 import ThirdUImage from "@/assets/images/3rd-u-1-min.png";
 
+const STAGES = [
+  {
+    question: "エレベーターに乗るにはどうすれば！？",
+    choices: [
+      {
+        text: "降りて欲しそうに見つめる",
+        image: FirstRImage,
+      },
+      {
+        text: "突撃する",
+        image: FirstSImage,
+      },
+      {
+        text: "「乗りたいんですけど〜」と言う",
+        image: FirstTImage,
+      },
+      {
+        text: "ため息をつく",
+        image: FirstUImage,
+      },
+    ],
+    correctAnswer: [0, 1, 2],
+    correctAnswerImage: FirstClearImage,
+    wrongAnswerImage: FailImage,
+  },
+  {
+    question: "エレベーターに乗るにはどうすれば！？",
+    choices: [
+      {
+        text: "小声で「すみません」と言う",
+        image: FirstTImage,
+      },
+      {
+        text: "「あの、15分ぐらい見送ってまして、、」と言う",
+        image: FirstTImage,
+      },
+      {
+        text: "舌打ちする",
+        image: SecondTImage,
+      },
+      {
+        text: "譲ってもらえるまで待ってみる",
+        image: SecondUImage,
+      },
+    ],
+    correctAnswer: [0, 1],
+    correctAnswerImage: SecondClearImage,
+    wrongAnswerImage: FailImage,
+  },
+  {
+    question: "エレベーターに乗るにはどうすれば！？",
+    choices: [
+      {
+        text: "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
+        image: FirstTImage,
+      },
+      {
+        text: "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
+        image: ThirdUImage,
+      },
+      {
+        text: "仁義を切る",
+        image: ThirdSImage,
+      },
+      {
+        text: "「あ、UFOだ！」と言う",
+        image: ThirdTImage,
+      },
+    ],
+    correctAnswer: [0],
+    correctAnswerImage: ThirdClearImage,
+    wrongAnswerImage: FailImage,
+  },
+];
+
 export default {
   name: "App",
   components: {
@@ -60,80 +136,7 @@ export default {
       showStart: true,
       showIntroduction: false,
       showGame: false,
-      stages: [
-        {
-          question: "エレベーターに乗るにはどうすれば！？",
-          choices: [
-            {
-              text: "降りて欲しそうに見つめる",
-              image: FirstRImage,
-            },
-            {
-              text: "突撃する",
-              image: FirstSImage,
-            },
-            {
-              text: "「乗りたいんですけど〜」と言う",
-              image: FirstTImage,
-            },
-            {
-              text: "ため息をつく",
-              image: FirstUImage,
-            },
-          ],
-          correctAnswer: [0, 1, 2],
-          correctAnswerImage: FirstClearImage,
-          wrongAnswerImage: FailImage,
-        },
-        {
-          question: "エレベーターに乗るにはどうすれば！？",
-          choices: [
-            {
-              text: "「小声ですみませんと言う」",
-              image: FirstTImage,
-            },
-            {
-              text: "「あの、15分ぐらい見送ってまして、、」と言う",
-              image: FirstTImage,
-            },
-            {
-              text: "舌打ちする",
-              image: SecondTImage,
-            },
-            {
-              text: "譲ってもらえるまで待ってみる",
-              image: SecondUImage,
-            },
-          ],
-          correctAnswer: [0, 1],
-          correctAnswerImage: SecondClearImage,
-          wrongAnswerImage: FailImage,
-        },
-        {
-          question: "エレベーターに乗るにはどうすれば！？",
-          choices: [
-            {
-              text: "「歩ける方、時間に余裕のある方はエスカレーターで行ってもらえませんか？」と言う",
-              image: FirstTImage,
-            },
-            {
-              text: "「外国ではみんな譲ってくれるんだけどな〜」と大きな独り言を言う",
-              image: ThirdUImage,
-            },
-            {
-              text: "仁義を切る",
-              image: ThirdSImage,
-            },
-            {
-              text: "「あ、UFOだ！」と言う",
-              image: ThirdTImage,
-            },
-          ],
-          correctAnswer: [0],
-          correctAnswerImage: ThirdClearImage,
-          wrongAnswerImage: FailImage,
-        },
-      ],
+      stages: STAGES,
       currentStageIndex: 0,
       correctAnswers: 0,
       wrongAnswers: 0,
@@ -154,9 +157,6 @@ export default {
     currentQuestion() {
       return this.stages[this.currentStageIndex];
     },
-    // isGameOverComputed() {
-    //   return this.wrongAnswers > 0;
-    // },
   },
   methods: {
     handleStart() {
