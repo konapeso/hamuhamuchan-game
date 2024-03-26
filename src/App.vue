@@ -180,7 +180,7 @@ export default {
       this.showIntroduction = false;
       setTimeout(() => {
         this.showGame = true;
-      }, 300);
+      }, 100);
     },
     checkAnswer(answerIndex) {
       this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;

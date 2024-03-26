@@ -42,7 +42,7 @@ export default {
       backgroundColor: "#D6E5CB",
       discription:
         "車椅子ユーザーのハムハムちゃん🐹満員エレベーターにどうやって入るのか🛗⁉️「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲーム🎮",
-      hashtags: "#DotsToCode",
+      hashtags: "#DotstoCode",
     };
   },
   computed: {
