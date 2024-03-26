@@ -81,7 +81,9 @@ export default {
             } else {
               this.questionKey += 1;
               this.$nextTick(() => {
-                this.isQuestionVisible = true;
+                setTimeout(() => {
+                  this.isQuestionVisible = true;
+                }, 1000);
                 this.displayCorrectImage = false;
                 this.$emit("next");
               });
