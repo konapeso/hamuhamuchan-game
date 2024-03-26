@@ -178,7 +178,9 @@ export default {
     startGame() {
       this.showStart = false;
       this.showIntroduction = false;
-      this.showGame = true;
+      setTimeout(() => {
+        this.showGame = true;
+      }, 500);
     },
     checkAnswer(answerIndex) {
       this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;

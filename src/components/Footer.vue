@@ -3,17 +3,17 @@
     class="bg-gray-800 text-white text-center py-4 fixed bottom-0 w-full flex flex-col justify-center items-center"
     :style="{ backgroundColor: backgroundColor }"
   >
-    <p class="text-gray-800 text-md font-semibold mr-2 mb-2">
+    <p class="text-gray-800 text-md font-semibold mr-2 mb-1">
       ＼ 友達にシェアしよう(ノ`ω´ヾ)／
     </p>
-    <div class="flex items-center space-x-2 mb-2">
+    <div class="flex items-center space-x-2 mb-1">
       <a
         :href="xURL"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center"
       >
-        <img :src="xIcon" alt="X" class="w-10 h-10" />
+        <img :src="xIcon" alt="X" class="w-13 h-13" />
       </a>
       <a
         :href="lineURL"
@@ -21,7 +21,7 @@
         rel="noopener noreferrer"
         class="flex items-center"
       >
-        <img :src="lineIcon" alt="LINE" class="w-11 h-11" />
+        <img :src="lineIcon" alt="LINE" class="w-14 h-14" />
       </a>
     </div>
 
