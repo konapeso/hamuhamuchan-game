@@ -1,22 +1,20 @@
 <template>
   <header class="mb-auto">
     <nav
-      class="fixed top-0 left-0 w-full z-10 bg-green-200 p-2 md:p-4 flex justify-between items-center"
+      class="fixed top-0 left-0 w-full z-10 bg-green-200 p-4 flex justify-center md:justify-between items-center align-middle"
       :style="{ backgroundColor: backgroundColor }"
     >
-      <router-link
-        to="/"
-        class="flex items-center flex-shrink-0 text-gray-800 mr-6"
+      <a
+        href="/"
+        class="flex items-center flex-shrink-0 text-gray-800 md:mr-6"
+        @click="handleHeaderClick"
       >
-        <img :src="logoJingi" alt="仁義なき" class="w-auto h-10 md:h-12" />
-        <img
-          :src="logoHamu"
-          alt="ハムハムちゃん"
-          class="w-auto h-10 md:h-12 -ml-3 -mt-3"
-        />
-      </router-link>
+        <img :src="logoJingi" alt="仁義なき" class="w-auto h-7" />
+        <img :src="logoHamu" alt="ハムハムちゃん" class="w-auto h-8 pl-1" />
+      </a>
 
-      <div class="flex items-center space-x-2 md:space-x-4">
+      <!-- スマホサイズでは非表示にする -->
+      <div class="hidden md:flex items-center space-x-2 md:space-x-4">
         <p class="text-gray-800 text-xs md:text-sm">友達にシェアしよう！</p>
         <a :href="xURL" target="_blank" rel="noopener noreferrer">
           <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9" />
@@ -67,6 +65,17 @@ export default {
     },
     logoJingi() {
       return LogoJingi;
+    },
+  },
+  methods: {
+    handleHeaderClick(event) {
+      if (
+        !confirm(
+          "最初の画面に戻ります。ゲームは中断されますが、よろしいですか？"
+        )
+      ) {
+        event.preventDefault();
+      }
     },
   },
 };
