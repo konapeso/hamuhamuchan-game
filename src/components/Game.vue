@@ -49,7 +49,7 @@ export default {
       wrongAnswerImage: null,
       gameOver: false,
       questionKey: 0,
-      isQuestionVisible: true,
+      isQuestionVisible: false,
     };
   },
   computed: {
@@ -62,6 +62,9 @@ export default {
         return this.questionImages[this.currentStageIndex];
       }
     },
+  },
+  mounted() {
+    this.isQuestionVisible = true;
   },
   methods: {
     handleAnswer(answerIndex) {
