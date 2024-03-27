@@ -37,8 +37,11 @@ import ogImage from "@/assets/images/0-start-min.png";
 export default {
   data() {
     return {
-      title: "仁義なきハムハムちゃん",
+      title: "〜仁義なきハムハムちゃん〜",
       backgroundColor: "#D6E5CB",
+      discription:
+        "車椅子ユーザーのハムハムちゃん🐹満員エレベーターにどうやって入るのか🛗⁉️「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲーム🎮",
+      hashtags: "#DotstoCode",
     };
   },
   computed: {
@@ -46,7 +49,9 @@ export default {
       return window.location.href;
     },
     xURL() {
-      return `https://twitter.com/intent/tweet?url=${this.url}&text=${this.title}&image=${ogImage}`;
+      const text = `${this.discription}\n${this.title} ${this.hashtags}`;
+      const encodedText = encodeURIComponent(text);
+      return `https://twitter.com/intent/tweet?url=${this.url}&text=${encodedText}&image=${ogImage}`;
     },
 
     lineURL() {
