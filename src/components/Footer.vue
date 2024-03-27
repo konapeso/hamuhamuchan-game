@@ -1,12 +1,12 @@
 <template>
   <footer
-    class="bg-gray-800 text-white text-center py-4 fixed bottom-0 w-full flex flex-col justify-center items-center"
+    class="bg-gray-800 text-white text-center py-2 fixed bottom-0 w-full flex flex-col justify-center items-center"
     :style="{ backgroundColor: backgroundColor }"
   >
-    <p class="text-gray-800 text-md font-semibold mr-2 mb-1">
+    <p class="text-gray-800 text-md font-semibold">
       ＼ 友達にシェアしよう(ノ`ω´ヾ)／
     </p>
-    <div class="flex items-center space-x-2 mb-1">
+    <div class="flex items-center space-x-2">
       <a
         :href="xURL"
         target="_blank"
@@ -37,8 +37,11 @@ import ogImage from "@/assets/images/0-start-min.png";
 export default {
   data() {
     return {
-      title: "仁義なきハムハムちゃん",
+      title: "〜仁義なきハムハムちゃん〜",
       backgroundColor: "#D6E5CB",
+      discription:
+        "車椅子ユーザーのハムハムちゃん🐹満員エレベーターにどうやって入るのか🛗⁉️「コミュニケーション」でサポートを引き出し、ギャップを乗り越える知的戦略ゲーム🎮",
+      hashtags: "#DotstoCode",
     };
   },
   computed: {
@@ -46,7 +49,9 @@ export default {
       return window.location.href;
     },
     xURL() {
-      return `https://twitter.com/intent/tweet?url=${this.url}&text=${this.title}&image=${ogImage}`;
+      const text = `${this.discription}\n${this.title} ${this.hashtags}`;
+      const encodedText = encodeURIComponent(text);
+      return `https://twitter.com/intent/tweet?url=${this.url}&text=${encodedText}&image=${ogImage}`;
     },
 
     lineURL() {

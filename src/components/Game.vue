@@ -2,7 +2,7 @@
   <div>
     <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
   </div>
-  <div class="absolute inset-0 flex justify-center items-center">
+  <div class="absolute inset-0 flex justify-center flex-start md:items-center">
     <QuestionImage
       :currentQuestionImage="currentQuestionImage"
       :displayCorrectImage="displayCorrectImage"
@@ -49,7 +49,7 @@ export default {
       wrongAnswerImage: null,
       gameOver: false,
       questionKey: 0,
-      isQuestionVisible: true,
+      isQuestionVisible: false,
     };
   },
   computed: {
@@ -62,6 +62,9 @@ export default {
         return this.questionImages[this.currentStageIndex];
       }
     },
+  },
+  mounted() {
+    this.isQuestionVisible = true;
   },
   methods: {
     handleAnswer(answerIndex) {

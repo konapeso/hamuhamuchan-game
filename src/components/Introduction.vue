@@ -2,7 +2,7 @@
   <ImageFrame>
     <img :src="introductionImage" alt="説明文" />
     <div
-      class="absolute inset-0 flex flex-col justify-center items-center mx-2"
+      class="absolute inset-0 flex flex-col flex-start md:justify-center items-center mx-2"
     >
       <p
         class="bg-orange-50 bg-opacity-80 text-center text-lg font-semibold leading-8 md:leading-9 tracking-wide mb-3 mt-6 fade-in whitespace-pre-line"
