@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md w-full relative">
+  <div class="max-w-md w-full relative mt-20 md:mt-0">
     <transition name="fade">
       <div v-if="isVisible" class="question text-center">
         <p

@@ -2,7 +2,7 @@
   <div>
     <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
   </div>
-  <div class="absolute inset-0 flex justify-center items-center">
+  <div class="absolute inset-0 flex justify-center flex-start md:items-center">
     <QuestionImage
       :currentQuestionImage="currentQuestionImage"
       :displayCorrectImage="displayCorrectImage"

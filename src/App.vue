@@ -1,6 +1,8 @@
 <template>
   <Header />
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div
+    class="flex flex-col items-center justify-start md:justify-center h-screen"
+  >
     <Start v-if="showStart" @start="handleStart" />
     <Introduction v-if="showIntroduction" @proceed="startGame" />
     <Game
@@ -178,33 +180,33 @@ export default {
     startGame() {
       this.showStart = false;
       this.showIntroduction = false;
-      setTimeout(() => {
-        this.showGame = true;
-      }, 100);
+      this.showGame = true;
     },
     checkAnswer(answerIndex) {
-      this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;
-      const isCorrect =
-        this.currentQuestion.correctAnswer.includes(answerIndex);
+      this.selectedChoiceImage = this.currentStage.choices[answerIndex].image;
+      const isCorrect = this.currentStage.correctAnswer.includes(answerIndex);
+      this.showResultAfterDelay(isCorrect, 2000);
+    },
+    showResultAfterDelay(isCorrect, delay) {
       setTimeout(() => {
-        this.currentChoiceImage = null;
+        this.selectedChoiceImage = null;
         this.$forceUpdate();
         if (isCorrect) {
           this.displayCorrectImage = true;
           setTimeout(() => {
             this.displayCorrectImage = false;
-            if (this.currentStageIndex === 2) {
-              this.gameWon = true;
+            if (this.currentStageIndex === this.stages.length - 1) {
+              this.handleGameWon();
             } else {
               this.moveToNextStage();
             }
-          }, 2000);
+          }, delay);
         } else {
           this.wrongAnswers++;
           this.displayWrongImage = true;
-          this.gameOver = true;
+          this.handleGameOver();
         }
-      }, 2000);
+      }, delay);
     },
     moveToNextStage() {
       if (this.currentStageIndex < this.stages.length - 1) {

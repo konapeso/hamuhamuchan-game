@@ -1,12 +1,12 @@
 <template>
   <footer
-    class="bg-gray-800 text-white text-center py-4 fixed bottom-0 w-full flex flex-col justify-center items-center"
+    class="bg-gray-800 text-white text-center py-2 fixed bottom-0 w-full flex flex-col justify-center items-center"
     :style="{ backgroundColor: backgroundColor }"
   >
-    <p class="text-gray-800 text-md font-semibold mr-2 mb-1">
+    <p class="text-gray-800 text-md font-semibold">
       ＼ 友達にシェアしよう(ノ`ω´ヾ)／
     </p>
-    <div class="flex items-center space-x-2 mb-1">
+    <div class="flex items-center space-x-2">
       <a
         :href="xURL"
         target="_blank"
