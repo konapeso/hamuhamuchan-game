@@ -5,13 +5,13 @@
       class="absolute inset-0 flex flex-col flex-start md:justify-center items-center mx-2"
     >
       <p
-        class="bg-orange-50 bg-opacity-80 text-center text-lg font-semibold leading-8 md:leading-9 tracking-wide mb-3 mt-6 fade-in whitespace-pre-line"
+        class="bg-orange-50 bg-opacity-80 text-center text-lg text-orange-950 font-semibold leading-8 md:leading-9 tracking-wide mb-3 mt-6 fade-in whitespace-pre-line"
         v-show="!showSecondPart"
       >
         {{ introductionTextPart1 }}
       </p>
       <p
-        class="bg-orange-50 bg-opacity-80 text-center text-lg font-semibold leading-8 md:leading-9 tracking-wide mb-3 mt-6 fade-in whitespace-pre-line"
+        class="bg-orange-50 bg-opacity-80 text-center text-lg text-orange-950 font-semibold leading-8 md:leading-9 tracking-wide mb-3 mt-6 fade-in whitespace-pre-line"
         v-show="showSecondPart"
       >
         {{ introductionTextPart2 }}
