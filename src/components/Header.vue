@@ -13,14 +13,16 @@
         <img :src="logoHamu" alt="ハムハムちゃん" class="w-auto h-8 pl-1" />
       </a>
 
-      <!-- スマホサイズでは非表示にする -->
-      <div class="hidden md:flex items-center space-x-2 md:space-x-4">
+      <div class="hidden md:flex items-center space-x-3">
         <p class="text-orange-950 text-xs md:text-sm">友達にシェアしよう！</p>
         <a :href="xURL" target="_blank" rel="noopener noreferrer">
-          <img :src="xIcon" alt="X" class="w-8 h-8 md:w-9 md:h-9" />
+          <img :src="xIcon" alt="X" class="w-10 h-10" />
         </a>
         <a :href="lineURL" target="_blank" rel="noopener noreferrer">
-          <img :src="lineIcon" alt="LINE" class="w-9 h-9 md:w-10 md:h-10" />
+          <img :src="lineIcon" alt="LINE" class="w-11 h-11" />
+        </a>
+        <a :href="kifuURL" target="_blank" rel="noopener noreferrer">
+          <img :src="kifuIcon" alt="車いすの団体に寄付" class="w-11 h-11" />
         </a>
       </div>
     </nav>
@@ -30,6 +32,7 @@
 <script>
 import XIcon from "@/assets/icons/x-icon.png";
 import LineIcon from "@/assets/icons/line-icon.png";
+import KifuIcon from "@/assets/icons/kifu-icon.png";
 import ogImage from "@/assets/images/0-start-min.png";
 import LogoImage from "@/assets/images/logo-hamu.png";
 import LogoJingi from "@/assets/images/logo-jingi.png";
@@ -58,12 +61,18 @@ export default {
     lineURL() {
       return `https://line.me/R/msg/text/?${this.title}%0D%0A${this.url}`;
     },
+    kifuURL() {
+      return "https://syncable.biz/associate/1760012#associate-tabs";
+    },
 
     xIcon() {
       return XIcon;
     },
     lineIcon() {
       return LineIcon;
+    },
+    kifuIcon() {
+      return KifuIcon;
     },
     logoHamu() {
       return LogoImage;
