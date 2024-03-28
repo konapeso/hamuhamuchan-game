@@ -23,6 +23,14 @@
       >
         <img :src="lineIcon" alt="LINE" class="w-14 h-14" />
       </a>
+      <a
+        :href="kifuURL"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center"
+      >
+        <img :src="kifuIcon" alt="KIFU" class="w-14 h-14" />
+      </a>
     </div>
 
     <p class="text-gray-800 text-md">&copy; 2024 TEAM ELEVATOR</p>
@@ -32,6 +40,7 @@
 <script>
 import XIcon from "@/assets/icons/x-icon.png";
 import LineIcon from "@/assets/icons/line-icon.png";
+import kifuIcon from "@/assets/icons/kifu-icon.png";
 import ogImage from "@/assets/images/0-start-min.png";
 
 export default {
@@ -58,11 +67,17 @@ export default {
       return `https://line.me/R/msg/text/?${this.title}%0D%0A${this.url}`;
     },
 
+    kifuURL() {
+      return `https://www.paypal.me/kayokaw`;
+    },
     xIcon() {
       return XIcon;
     },
     lineIcon() {
       return LineIcon;
+    },
+    kifuIcon() {
+      return kifuIcon;
     },
   },
 };

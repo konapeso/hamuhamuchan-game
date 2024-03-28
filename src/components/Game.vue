@@ -21,6 +21,28 @@
     :isVisible="isQuestionVisible"
     @answer="handleAnswer"
   />
+<!-- 広告を表示する領域 -->
+<div class="absolute inset-y-0 left-0 flex items-center pl-4">
+      <!-- 左側の広告 -->
+      <div class="h-full w-24">
+        <!-- 広告画像やリンクをここに配置 -->
+        <img src="@/assets/images/karikoukoku1.png" alt="広告1" /><br><br>
+        <img src="@/assets/images/karikoukoku2.jpg" alt="広告2" />
+      </div>
+    </div>
+
+    <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+      <!-- 右側の広告 -->
+      <div class="h-full w-24">
+        <!-- 広告画像やリンクをここに配置 -->
+        <img src="@/assets/images/karikoukoku5.png" alt="広告1" /><br><br>
+        <img src="@/assets/images/karikoukoku4.png" alt="広告2" />
+      </div>
+    </div>
+
+
+
+
 </template>
 
 <script>
