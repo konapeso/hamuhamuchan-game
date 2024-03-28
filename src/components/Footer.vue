@@ -3,7 +3,7 @@
     class="bg-gray-800 text-white text-center py-2 fixed bottom-0 w-full flex flex-col justify-center items-center"
     :style="{ backgroundColor: backgroundColor }"
   >
-    <p class="text-gray-800 text-md font-semibold">
+    <p class="text-orange-950 text-md font-semibold">
       ＼ 友達にシェアしよう(ノ`ω´ヾ)／
     </p>
     <div class="flex items-center space-x-2">
@@ -25,7 +25,7 @@
       </a>
     </div>
 
-    <p class="text-gray-800 text-md">&copy; 2024 TEAM ELEVATOR</p>
+    <p class="text-orange-950 text-md">&copy; 2024 TEAM ELEVATOR</p>
   </footer>
 </template>
 
