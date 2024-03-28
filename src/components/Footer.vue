@@ -23,6 +23,9 @@
       >
         <img :src="lineIcon" alt="LINE" class="w-14 h-14" />
       </a>
+      <a href="">
+        <img :src="kifuIcon" alt="KIFU" class="w-14 h-14" />
+      </a>
     </div>
 
     <p class="text-orange-950 text-md">&copy; 2024 TEAM ELEVATOR</p>
@@ -32,6 +35,7 @@
 <script>
 import XIcon from "@/assets/icons/x-icon.png";
 import LineIcon from "@/assets/icons/line-icon.png";
+import KifuIcon from "@/assets/icons/kifu-icon.png";
 import ogImage from "@/assets/images/0-start-min.png";
 
 export default {
@@ -63,6 +67,9 @@ export default {
     },
     lineIcon() {
       return LineIcon;
+    },
+    kifuIcon() {
+      return KifuIcon;
     },
   },
 };

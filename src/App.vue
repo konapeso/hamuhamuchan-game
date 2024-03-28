@@ -1,5 +1,10 @@
 <template>
   <Header />
+  <Advertisement
+    class="invisible md:visible"
+    position="left-10"
+    :ads="leftAds"
+  />
   <div
     class="flex flex-col items-center justify-start md:justify-center h-screen"
   >
@@ -22,6 +27,11 @@
       @restart="restartGame"
     />
   </div>
+  <Advertisement
+    class="invisible md:visible"
+    position="right-10"
+    :ads="rightAds"
+  />
   <Footer class="md:hidden" />
 </template>
 
@@ -32,6 +42,7 @@ import Start from "@/components/Start.vue";
 import Introduction from "@/components/Introduction.vue";
 import Game from "@/components/Game.vue";
 import Result from "@/components/Result.vue";
+import Advertisement from "@/components/Advertisement.vue";
 
 import FirstClearImage from "@/assets/images/1st-won-min.png";
 import FirstQuestionImage from "@/assets/images/1st-q-min.png";
@@ -50,6 +61,15 @@ import SecondUImage from "@/assets/images/2nd-u-1-min.png";
 import ThirdSImage from "@/assets/images/3rd-s-1-min.png";
 import ThirdTImage from "@/assets/images/3rd-t-1-min.png";
 import ThirdUImage from "@/assets/images/3rd-u-1-min.png";
+
+import DonationPc from "@/assets/images/kifu.png";
+import Ads1 from "@/assets/images/karikoukoku1.png";
+import Ads2 from "@/assets/images/karikoukoku2.jpg";
+import Ads3 from "@/assets/images/karikoukoku3.jpg";
+import Ads4 from "@/assets/images/karikoukoku4.png";
+// import DonationSp from "@/assets/images/kifu-icon.png";
+// import AdsSp1 from "@/assets/images/s_karikoukoku1.png";
+// import AdsSp2 from "@/assets/images/s_karikoukoku2.png";
 
 const STAGES = [
   {
@@ -135,6 +155,7 @@ export default {
     Introduction,
     Game,
     Result,
+    Advertisement,
   },
   data() {
     return {
@@ -156,6 +177,8 @@ export default {
       gameWon: false,
       gameOver: false,
       clearImage: ClearImage,
+      rightAds: [{ src: DonationPc }],
+      leftAds: [{ src: Ads1 }, { src: Ads3 }, { src: Ads4 }],
     };
   },
   computed: {
