@@ -62,7 +62,9 @@ export default {
     },
   },
   mounted() {
-    this.isQuestionVisible = true;
+    setTimeout(() => {
+      this.isQuestionVisible = true;
+    }, 2000);
   },
   methods: {
     handleAnswer(answerIndex) {
@@ -84,7 +86,7 @@ export default {
               this.$nextTick(() => {
                 setTimeout(() => {
                   this.isQuestionVisible = true;
-                }, 1000);
+                }, 2000);
                 this.displayCorrectImage = false;
                 this.$emit("next");
               });
