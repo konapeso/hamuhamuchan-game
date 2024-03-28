@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <p class="font-bold">ステージ{{ currentStageIndex + 1 }}</p>
-  </div>
   <div class="absolute inset-0 flex justify-center flex-start md:items-center">
     <QuestionImage
       :currentQuestionImage="currentQuestionImage"
@@ -19,6 +16,7 @@
     :question="$parent.stages[currentStageIndex].question"
     :choices="$parent.stages[currentStageIndex].choices"
     :isVisible="isQuestionVisible"
+    :currentStageIndex="currentStageIndex"
     @answer="handleAnswer"
   />
 </template>
