@@ -26,8 +26,8 @@
       <!-- 左側の広告 -->
       <div class="h-full w-24">
         <!-- 広告画像やリンクをここに配置 -->
-        <img src="@/assets/images/karikoukoku1.png" alt="広告1" /><br><br>
-        <img src="@/assets/images/karikoukoku2.jpg" alt="広告2" />
+        <img v-if="!isMobile" src="@/assets/images/karikoukoku1.png" alt="広告1" /><br><br>
+        <img v-if="!isMobile" src="@/assets/images/karikoukoku2.jpg" alt="広告2" />
       </div>
     </div>
 
@@ -35,14 +35,10 @@
       <!-- 右側の広告 -->
       <div class="h-full w-24">
         <!-- 広告画像やリンクをここに配置 -->
-        <img src="@/assets/images/karikoukoku5.png" alt="広告1" /><br><br>
-        <img src="@/assets/images/karikoukoku4.png" alt="広告2" />
+        <img v-if="!isMobile" src="@/assets/images/karikoukoku5.png" alt="広告1" /><br><br>
+        <img v-if="!isMobile" src="@/assets/images/karikoukoku4.png" alt="広告2" />
       </div>
     </div>
-
-
-
-
 </template>
 
 <script>
@@ -72,6 +68,7 @@ export default {
       gameOver: false,
       questionKey: 0,
       isQuestionVisible: false,
+      isMobile: false, // 初期値はスマホではないと仮定
     };
   },
   computed: {
@@ -87,8 +84,16 @@ export default {
   },
   mounted() {
     this.isQuestionVisible = true;
+    this.checkIfMobile();
+    window.addEventListener("resize", this.checkIfMobile);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkIfMobile);
   },
   methods: {
+    checkIfMobile() {
+      this.isMobile = window.innerWidth <= 768; // 768px以下をスマホと見なす
+    },
     handleAnswer(answerIndex) {
       this.currentChoiceImage = this.currentQuestion.choices[answerIndex].image;
       const isCorrect =
